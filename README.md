@@ -5,6 +5,24 @@ A minimalistic browser intended for web applications
 ### Launching
 ```webviewer https://chat.openai.com```
 
+### Integrating in your system through Home Manager
+to your Home Manager configuration add the following:
+```
+xdg = {
+  enable = true;
+  desktopEntries = {
+    chatgpt = {
+      name = "chatGPT";
+      exec = "${pkgs.webviewer}/bin/webviewer https://chat.openai.com"
+      terminal = false;
+      categories = ["Network"];
+      type = "Application";
+    };
+  };
+};
+```
+make sure you added webviewer to your nixpkgs overlay that this works. 
+
 ### Building
 ```nix build```
 
