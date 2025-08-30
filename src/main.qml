@@ -20,6 +20,10 @@ QtObject {
             id: webview
             anchors.fill: parent
             url: browser.url
+            settings.javascriptCanOpenWindows: true
+            onContextMenuRequested: function(request) {
+                request.accepted = true  // prevents context menu.
+            }
             onIconChanged: {
                 if (icon) {
                     browserWindow.flags = browserWindow.flags | Qt.WindowIcon
