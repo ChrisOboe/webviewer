@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QString>
+#include <QSettings>
+#include <QSize>
 
 class Browser : public QObject {
     Q_OBJECT
@@ -13,6 +15,8 @@ class Browser : public QObject {
         Browser(QString url, QObject *parent = nullptr);
         QString url();
         QString session();
+        Q_INVOKABLE void saveWindowSize(int width, int height);
+        Q_INVOKABLE QSize loadWindowSize();
 
     signals:
         void urlChanged(QString url);
@@ -21,6 +25,7 @@ class Browser : public QObject {
     private:
         QString m_url;
         QString m_session;
+        QSettings m_settings;
 };
 
 #endif // browser_h_INCLUDED

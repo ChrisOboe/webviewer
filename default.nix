@@ -2,11 +2,19 @@
   pkgs,
   cmake,
   ninja,
-  qt5,
+  kdePackages,
 }:
 pkgs.stdenv.mkDerivation {
   name = "webviewer";
-  nativeBuildInputs = [cmake ninja qt5.wrapQtAppsHook];
-  buildInputs = [qt5.qtbase qt5.qtwebview qt5.qtwayland];
+  nativeBuildInputs = [
+    cmake
+    ninja
+    kdePackages.wrapQtAppsHook
+  ];
+  buildInputs = [
+    kdePackages.qtbase
+    kdePackages.qtwebengine
+    kdePackages.qtwayland
+  ];
   src = ./src;
 }
