@@ -37,7 +37,7 @@ QtObject {
             }
             onNewWindowRequested: function(request) {
                 var newWindow = window.createObject(root);
-                if (newWindow) {
+                if (newWindow && newWindow.webview) {
                     request.openIn(newWindow.webview);
                 }
             }
