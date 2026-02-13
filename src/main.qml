@@ -36,7 +36,7 @@ QtObject {
                 persistentCookiesPolicy: WebEngineProfile.ForcePersistentCookies
             }
             onNewWindowRequested: function(request) {
-                var newWindow = window.createObject();
+                var newWindow = window.createObject(root);
                 if (newWindow && newWindow.webview) {
                     request.openIn(newWindow.webview);
                 }
@@ -48,6 +48,6 @@ QtObject {
     }
 
     Component.onCompleted: {
-        var win = window.createObject();
+        var win = window.createObject(root);
     }
 }
