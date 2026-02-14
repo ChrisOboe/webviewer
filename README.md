@@ -50,6 +50,16 @@ working for all websites (which is rather seldom these days).
 This project uses nix + CMake as it's build system. You should really try
 [nix](https://nixos.org/explore) if you don't know it yet.
 
+### MCP (Model Context Protocol) Integration
+This repository includes MCP configuration (`.mcp.json`) for AI assistants to access:
+- **GitHub MCP Server**: Access repository code, issues, PRs, workflows, and more
+- **NixOS MCP Server**: Query NixOS packages, options, Home Manager, and nix-darwin configurations
+
+Compatible with AI tools supporting MCP like Claude Desktop, VS Code, Cursor, and others.
+For more information, see:
+- [GitHub MCP Server](https://github.com/github/github-mcp-server)
+- [NixOS MCP Server](https://mcp-nixos.io/)
+
 ### ToDo (in no particular order)
 - One Process Multiple Sessions
 - Ad-Blocking
