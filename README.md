@@ -47,7 +47,7 @@ native libs and no surveillance. It's a browser engine that's both sane and
 working for all websites (which is rather seldom these days).
 
 ### Building part
-This project uses nix + CMake as it's build system. You should really try
+This project uses nix + CMake as its build system. You should really try
 [nix](https://nixos.org/explore) if you don't know it yet.
 
 ### MCP (Model Context Protocol) Integration
