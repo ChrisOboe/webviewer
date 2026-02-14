@@ -18,7 +18,9 @@
       };
       devShell = pkgs.mkShell {
         buildInputs = with pkgs; [
-          qt6.full
+          kdePackages.qtbase
+          kdePackages.qtwebengine
+          kdePackages.qtwayland
           cmake
           ninja
           gcc
