@@ -21,7 +21,6 @@
           kdePackages.qtbase
           kdePackages.qtwebengine
           kdePackages.qtwayland
-          kdePackages.wrapQtAppsHook
           cmake
           ninja
           gcc
