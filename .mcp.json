@@ -10,7 +10,7 @@
       "command": "nix",
       "args": [
         "run",
-        "github:utensils/mcp-nixos/v1.0.1",
+        "github:utensils/mcp-nixos",
         "--"
       ],
       "description": "NixOS MCP Server - Access NixOS packages, options, Home Manager, and nix-darwin configurations"
