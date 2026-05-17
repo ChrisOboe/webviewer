@@ -10,17 +10,27 @@ int main(int argc, char *argv[]) {
     QCoreApplication::setApplicationName("webviewer");
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
 
-    if (argc != 2 ) {
-        return 1;
-    };
-
-    QUrl url(argv[1]);
-
     QtWebEngineQuick::initialize();
     QGuiApplication app(argc, argv);
-    QQmlApplicationEngine engine;
 
-    Browser b(url.toString());
+    QCommandLineParser parser;
+    parser.setApplicationDescription("A minimalistic browser for web applications");
+    parser.addHelpOption();
+    parser.addOption({{"W", "width"}, "Force window width", "width"});
+    parser.addOption({{"H", "height"}, "Force window height", "height"});
+    parser.addPositionalArgument("url", "URL to open");
+    parser.process(app);
+
+    QStringList args = parser.positionalArguments();
+    if (args.isEmpty())
+        parser.showHelp(1);
+
+    QUrl url(args.first());
+    int forceWidth = parser.value("width").toInt();
+    int forceHeight = parser.value("height").toInt();
+    Browser b(url.toString(), forceWidth, forceHeight);
+
+    QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("browser", &b);
     const QUrl qmlUrl(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

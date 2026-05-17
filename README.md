@@ -4,6 +4,7 @@ A minimalistic browser intended for web applications
 ## Quickstart
 ### Launching
 ```webviewer https://chat.openai.com```
+```webviewer --width 1024 --height 768 https://chat.openai.com```
 
 ### Integrating in your system through Home Manager
 to your Home Manager configuration add the following:

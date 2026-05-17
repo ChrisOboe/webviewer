@@ -12,7 +12,7 @@ class Browser : public QObject {
     Q_PROPERTY(QString session READ session NOTIFY sessionChanged)
 
     public:
-        Browser(QString url, QObject *parent = nullptr);
+        Browser(QString url, int forceWidth = 0, int forceHeight = 0, QObject *parent = nullptr);
         QString url();
         QString session();
         Q_INVOKABLE void saveWindowSize(int width, int height);
@@ -25,6 +25,8 @@ class Browser : public QObject {
     private:
         QString m_url;
         QString m_session;
+        int m_forceWidth;
+        int m_forceHeight;
         QSettings m_settings;
 };
 
