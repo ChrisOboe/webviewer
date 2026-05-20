@@ -1,0 +1,19 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/mcp.json",
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "description": "GitHub MCP Server - Access GitHub repositories, issues, PRs, workflows, and code. Authentication is handled by the MCP client (OAuth flow in VS Code, Claude Desktop, etc.)"
+    },
+    "nixos": {
+      "command": "nix",
+      "args": [
+        "run",
+        "github:utensils/mcp-nixos",
+        "--"
+      ],
+      "description": "NixOS MCP Server - Access NixOS packages, options, Home Manager, and nix-darwin configurations"
+    }
+  }
+}
